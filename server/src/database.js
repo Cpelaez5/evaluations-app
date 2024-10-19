@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const { EVALUATIONS_APP_MONGODB_HOST, EVALUATIONS_APP_MONGODB_DATABASE } = process.env;
+const MONGODB_URI = `mongodb://${EVALUATIONS_APP_MONGODB_HOST}/${EVALUATIONS_APP_MONGODB_DATABASE}`;
 
-const MONGODB_URI = 'mongodb://localhost/evaluations-app';
+mongoose.connect(MONGODB_URI, {})
 
-mongoose.connect(MONGODB_URI, {
-});
+    .then(db => console.log('Database connected'))
+    .catch(err => console.error(err));
