@@ -4,19 +4,28 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "build": "babel ./src --out-dir ./build",
+    "dev": "nodemon ./src/index.js --exec babel-node",
+    "start": "node ./build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carlos Peláez",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "mongoose": "^8.7.2"
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/node": "^7.25.7",
+    "@babel/preset-env": "^7.25.8",
     "nodemon": "^3.1.7"
   }
 }

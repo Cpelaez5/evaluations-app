@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const employeeSchema = new Schema({
     name: {
@@ -10,7 +10,8 @@ const employeeSchema = new Schema({
          required: true
         }
 },{
-    timestamps: true
+    timestamps: true,
+    versionKey: false
 });
 
-module.exports = model('Employee', employeeSchema);
+export default model('Employee', employeeSchema);

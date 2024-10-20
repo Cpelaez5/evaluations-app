@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "e76223f2-00a7-4098-be3c-2cfaea16aba0",
+		"name": "REACT-NODE-EXPRESS API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34430842"
+	},
+	"item": [
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/employees",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dwayne Johnson\",\r\n    \"email\": \"therock123@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/employees",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": []
+		},
+		{
+			"name": "Auth",
+			"item": []
+		}
+	]
+}
