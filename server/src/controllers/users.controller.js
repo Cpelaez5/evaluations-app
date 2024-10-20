@@ -10,10 +10,10 @@ export const getUserById = (req, res) => {
 
 }
 
-export const updateUsers = (req, res) => {
+export const updateUsersById = (req, res) => {
 
 
 }
-export const deleteUserById = (req, res) => {
+export const deleteUsersById = (req, res) => {
 
 }

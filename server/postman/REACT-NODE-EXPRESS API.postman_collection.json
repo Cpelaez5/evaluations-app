@@ -15,13 +15,54 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/employees",
+							"raw": "localhost:5000/api/employees",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
+								"api",
 								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees/EmployeeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/employees/6714818eaa8cc6a1892fef40",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"6714818eaa8cc6a1892fef40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete EmployeeId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/employees/67147e6b2d07d982032c2b2a",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"67147e6b2d07d982032c2b2a"
 							]
 						}
 					},
@@ -48,13 +89,198 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5000/employees",
+							"raw": "localhost:5000/api/employees",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
+								"api",
 								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Carlos Duarte\",\r\n    \"email\": \"carlosduarte2@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/employees/67147cff9f74222eb426e26f",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"67147cff9f74222eb426e26f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluations",
+			"item": [
+				{
+					"name": "api/evaluations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/evaluations",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"evaluations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/evaluations/evaluationId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/evaluations/67152205023710fe37666e2a",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"evaluations",
+								"67152205023710fe37666e2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/evaluations/evaluationId",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTRlZDBkZWEyYjNkZTQwZDYzOGU4YiIsImlhdCI6MTcyOTQzNzcwMywiZXhwIjoxNzI5NTI0MTAzfQ.k6B3awK2FnTAB2rcMBRcFlhYI60isuhPC4G1jiH1ipI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/evaluations/6715222f023710fe37666e2e",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"evaluations",
+								"6715222f023710fe37666e2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/evaluations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTRlZDBkZWEyYjNkZTQwZDYzOGU4YiIsImlhdCI6MTcyOTQzNzcwMywiZXhwIjoxNzI5NTI0MTAzfQ.k6B3awK2FnTAB2rcMBRcFlhYI60isuhPC4G1jiH1ipI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Evaluación n°2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/evaluations",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"evaluations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/evaluations/evaluationId",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTRlZDBkZWEyYjNkZTQwZDYzOGU4YiIsImlhdCI6MTcyOTQzNzcwMywiZXhwIjoxNzI5NTI0MTAzfQ.k6B3awK2FnTAB2rcMBRcFlhYI60isuhPC4G1jiH1ipI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Evaluación n°1 actualizada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/evaluations/67152205023710fe37666e2a",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"evaluations",
+								"67152205023710fe37666e2a"
 							]
 						}
 					},
@@ -68,7 +294,85 @@
 		},
 		{
 			"name": "Auth",
-			"item": []
+			"item": [
+				{
+					"name": "/api/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"mark suckerber234\",\r\n    \"email\": \"markzuckerberg@google.com\",\r\n    \"password\": \"password\",\r\n    \"roles\": [\"admin\",\"manager\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "content",
+									"value": "application/json",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"markzuckerberg@google.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
