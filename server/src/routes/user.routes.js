@@ -4,8 +4,6 @@ const router = Router()
 import * as usersController from "../controllers/users.controller.js"
 import { authJwt, verifyRegister } from "../middlewares/index.js"
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin, verifyRegister.checkRolesExisted], usersController.createUser);
-
 router.get('/', usersController.getUsers);
 
 router.get('/:userId', usersController.getUserById);
