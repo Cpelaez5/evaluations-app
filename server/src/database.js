@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: '.env' });
 
-const { EVALUATIONS_APP_MONGODB_HOST, EVALUATIONS_APP_MONGODB_DATABASE } = process.env;
-const MONGODB_URI = `mongodb://${EVALUATIONS_APP_MONGODB_HOST}/${EVALUATIONS_APP_MONGODB_DATABASE}`;
+const { EVALUATIONS_APP_MONGODB_HOST } = process.env;
+const MONGODB_URI = `${EVALUATIONS_APP_MONGODB_HOST}`;
 
 mongoose.connect(MONGODB_URI,{})
 
