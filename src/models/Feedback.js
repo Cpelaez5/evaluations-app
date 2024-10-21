@@ -1,36 +1,42 @@
-import { Schema, model } from 'mongoose';
+"use strict";
 
-const responseSchema = new Schema({
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _mongoose = require("mongoose");
+var responseSchema = new _mongoose.Schema({
   question: {
-    type: Schema.Types.ObjectId,
+    type: _mongoose.Schema.Types.ObjectId,
     ref: 'Question',
     required: true
   },
   answer: {
-    type: Schema.Types.Mixed,
+    type: _mongoose.Schema.Types.Mixed,
     required: true
   },
   rating: {
     type: Number,
     min: 1,
     max: 5,
-    required: function() { return this.question.type === 'rating'; }
+    required: function required() {
+      return this.question.type === 'rating';
+    }
   }
 });
-
-const feedbackSchema = new Schema({
+var feedbackSchema = new _mongoose.Schema({
   evaluation: {
-    type: Schema.Types.ObjectId,
+    type: _mongoose.Schema.Types.ObjectId,
     ref: 'Evaluation',
     required: true
   },
   providedBy: {
-    type: Schema.Types.ObjectId,
+    type: _mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
   forEmployee: {
-    type: Schema.Types.ObjectId,
+    type: _mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
@@ -41,8 +47,8 @@ const feedbackSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ['draft', 'submitted'],
-    default: 'draft'
+    "enum": ['draft', 'submitted'],
+    "default": 'draft'
   }
 }, {
   timestamps: true,
@@ -50,15 +56,25 @@ const feedbackSchema = new Schema({
 });
 
 // Método para calcular el promedio de las calificaciones
-feedbackSchema.methods.calculateAverageRating = function() {
-  const ratingResponses = this.responses.filter(r => r.rating);
+feedbackSchema.methods.calculateAverageRating = function () {
+  var ratingResponses = this.responses.filter(function (r) {
+    return r.rating;
+  });
   if (ratingResponses.length === 0) return 0;
-  const sum = ratingResponses.reduce((acc, r) => acc + r.rating, 0);
+  var sum = ratingResponses.reduce(function (acc, r) {
+    return acc + r.rating;
+  }, 0);
   return sum / ratingResponses.length;
 };
 
 // Índices para mejorar el rendimiento de las consultas
-feedbackSchema.index({ evaluation: 1, providedBy: 1 }, { unique: true });
-feedbackSchema.index({ forEmployee: 1 });
-
-export default model('Feedback', feedbackSchema);
+feedbackSchema.index({
+  evaluation: 1,
+  providedBy: 1
+}, {
+  unique: true
+});
+feedbackSchema.index({
+  forEmployee: 1
+});
+var _default = exports["default"] = (0, _mongoose.model)('Feedback', feedbackSchema);

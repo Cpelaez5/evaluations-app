@@ -1,14 +1,17 @@
-import { Schema, model } from 'mongoose';
+"use strict";
 
-export const ROLES = ['admin', 'manager', 'employee'];
-
-const roleSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    }
-},{
-    versionKey: false,
-})
-
-export default model('Role', roleSchema);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = exports.ROLES = void 0;
+var _mongoose = require("mongoose");
+var ROLES = exports.ROLES = ['admin', 'manager', 'employee'];
+var roleSchema = new _mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  }
+}, {
+  versionKey: false
+});
+var _default = exports["default"] = (0, _mongoose.model)('Role', roleSchema);
