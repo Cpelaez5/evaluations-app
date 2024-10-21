@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors'; // Importar el paquete cors
 import employeeRoutes from './routes/employee.routes.js';
 import evaluationsRoutes from './routes/evaluations.routes.js';
 import usersRoutes from './routes/user.routes.js';
@@ -10,6 +11,14 @@ import { createRoles } from './lib/initialSetup.js';
 
 const app = express();
 createRoles();
+
+// Configurar CORS
+app.use(cors()); // Habilitar CORS para todas las rutas
+
+// Si deseas permitir solo ciertos orígenes, puedes configurarlo así:
+// app.use(cors({
+//     origin: ['https://tudominio.com', 'https://otrotudominio.com']
+// }));
 
 app.use(express.json());
 app.use(morgan('dev'));
