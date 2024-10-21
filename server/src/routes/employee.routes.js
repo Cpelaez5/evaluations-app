@@ -1,16 +1,22 @@
-import { Router } from "express"
-const router = Router()
+import { Router } from "express";
+const router = Router();
 
-import * as employeesController from "../controllers/employees.controller.js"
-import { authJwt } from "../middlewares/index.js"
-router.post('/', [authJwt.verifyToken], employeesController.createEmployee);
+import * as employeesController from "../controllers/employees.controller.js";
+import { authJwt } from "../middlewares/index.js";
 
-router.get('/', employeesController.getEmployees);
+// Ruta para crear un nuevo empleado (solo admins o managers)
+router.post('/', [authJwt.verifyToken, authJwt.isManagerOrAdmin], employeesController.createEmployee);
 
-router.get('/:employeeId', employeesController.getEmployeeById);
+// Ruta para obtener todos los empleados (solo admins)
+router.get('/', [authJwt.verifyToken, authJwt.isAdmin], employeesController.getEmployees);
 
-router.put('/:employeeId', [authJwt.verifyToken], employeesController.updateEmployeesById);
+// Ruta para obtener un empleado por ID (cualquiera autenticado puede hacerlo)
+router.get('/:employeeId', [authJwt.verifyToken], employeesController.getEmployeeById);
 
-router.delete('/:employeeId', [authJwt.verifyToken], employeesController.deleteEmployeeById);
+// Ruta para actualizar un empleado por ID (solo admins o managers)
+router.put('/:employeeId', [authJwt.verifyToken, authJwt.isManagerOrAdmin], employeesController.updateEmployeesById);
+
+// Ruta para eliminar un empleado por ID (solo admins)
+router.delete('/:employeeId', [authJwt.verifyToken, authJwt.isAdmin], employeesController.deleteEmployeeById);
 
 export default router;

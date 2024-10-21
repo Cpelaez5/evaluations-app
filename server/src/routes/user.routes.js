@@ -1,15 +1,19 @@
-import { Router } from "express"
-const router = Router()
+import { Router } from "express";
+const router = Router();
 
-import * as usersController from "../controllers/users.controller.js"
-import { authJwt, verifyRegister } from "../middlewares/index.js"
+import * as usersController from "../controllers/users.controller.js";
+import { authJwt } from "../middlewares/index.js"; // Asegúrate de que estás importando el middleware
 
-router.get('/', usersController.getUsers);
+// Obtener todos los usuarios (solo Admin)
+router.get('/', [authJwt.verifyToken, authJwt.isAdmin], usersController.getUsers);
 
-router.get('/:userId', usersController.getUserById);
+// Obtener un usuario por ID (solo Admin)
+router.get('/:userId', [authJwt.verifyToken, authJwt.isAdmin], usersController.getUserById);
 
-router.put('/:userId', [authJwt.verifyToken], usersController.updateUsersById);
+// Actualizar un usuario por ID (solo Admin)
+router.put('/:userId', [authJwt.verifyToken, authJwt.isAdmin], usersController.updateUsersById);
 
-router.delete('/:userId', [authJwt.verifyToken], usersController.deleteUsersById);
+// Eliminar un usuario por ID (solo Admin)
+router.delete('/:userId', [authJwt.verifyToken, authJwt.isAdmin], usersController.deleteUsersById);
 
 export default router;

@@ -163,13 +163,17 @@ export const getEvaluationProgress = async (req, res) => {
         if (!evaluation) {
             return res.status(404).json({ message: "Evaluation not found" });
         }
-        // Aquí puedes implementar la lógica para calcular el progreso
-        // Por ejemplo, contar cuántos evaluadores han completado su feedback
+
+        const completedFeedbacks = evaluation.feedbacks.length;
+        const totalEvaluators = evaluation.evaluators.length;
+
         const progress = {
-            totalEvaluators: evaluation.evaluators.length,
-            completedEvaluations: 0, // Esto deberías calcularlo basado en tu lógica de negocio
+            totalEvaluators,
+            completedEvaluations: completedFeedbacks,
+            percentage: (completedFeedbacks / totalEvaluators) * 100,
             status: evaluation.status
         };
+
         res.json(progress);
     } catch (error) {
         res.status(500).json({ message: error.message });

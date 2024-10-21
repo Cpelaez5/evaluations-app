@@ -11,11 +11,6 @@ const employeeSchema = new Schema({
         type: String, 
         required: true 
     }, 
-    email: {
-        type: String, 
-        required: true,
-        unique: true
-    },
     position: {
         type: String,
         required: true
