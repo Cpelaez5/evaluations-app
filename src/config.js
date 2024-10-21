@@ -1,9 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _default = exports["default"] = {
-  SECRET: 'application-api'
-};
+export default {
+    SECRET: 'application-api'
+}

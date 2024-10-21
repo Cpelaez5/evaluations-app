@@ -2,11 +2,7 @@
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 var _dotenv = _interopRequireDefault(require("dotenv"));
-function _interopRequireDefault(e) {
-  return e && e.__esModule ? e : {
-    "default": e
-  };
-}
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 _dotenv["default"].config({
   path: '.env'
 });

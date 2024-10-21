@@ -1,43 +1,37 @@
-"use strict";
+import { Router } from "express";
+const router = Router();
 
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _express = require("express");
-var evaluationsController = _interopRequireWildcard(require("../controllers/evaluations.controller.js"));
-var _index = require("../middlewares/index.js");
-function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { "default": e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n["default"] = e, t && t.set(e, n), n; }
-var router = (0, _express.Router)();
+import * as evaluationsController from "../controllers/evaluations.controller.js";
+import { authJwt } from "../middlewares/index.js";
+
 // Crear una nueva evaluación (solo managers o admins)
-router.post('/', [_index.authJwt.verifyToken, _index.authJwt.isManagerOrAdmin], evaluationsController.createEvaluation);
+router.post('/', [authJwt.verifyToken, authJwt.isManagerOrAdmin], evaluationsController.createEvaluation);
 
 // Obtener todas las evaluaciones (solo admins)
-router.get('/', [_index.authJwt.verifyToken, _index.authJwt.isAdmin], evaluationsController.getEvaluations);
+router.get('/', [authJwt.verifyToken, authJwt.isAdmin], evaluationsController.getEvaluations);
 
 // Obtener evaluaciones para un empleado específico
-router.get('/employee/:employeeId', [_index.authJwt.verifyToken], evaluationsController.getEvaluationsByEmployee);
+router.get('/employee/:employeeId', [authJwt.verifyToken], evaluationsController.getEvaluationsByEmployee);
 
 // Obtener una evaluación específica por ID
-router.get('/:evaluationId', [_index.authJwt.verifyToken], evaluationsController.getEvaluationById);
+router.get('/:evaluationId', [authJwt.verifyToken], evaluationsController.getEvaluationById);
 
 // Actualizar una evaluación (solo el creador o admin)
-router.put('/:evaluationId', [_index.authJwt.verifyToken, _index.authJwt.isCreatorOrAdmin], evaluationsController.updateEvaluationById);
+router.put('/:evaluationId', [authJwt.verifyToken, authJwt.isCreatorOrAdmin], evaluationsController.updateEvaluationById);
 
 // Eliminar una evaluación (solo admins)
-router["delete"]('/:evaluationId', [_index.authJwt.verifyToken, _index.authJwt.isAdmin], evaluationsController.deleteEvaluationById);
+router.delete('/:evaluationId', [authJwt.verifyToken, authJwt.isAdmin], evaluationsController.deleteEvaluationById);
 
 // Iniciar una evaluación (cambiar estado a 'inProgress')
-router.post('/:evaluationId/start', [_index.authJwt.verifyToken, _index.authJwt.isManagerOrAdmin], evaluationsController.startEvaluation);
+router.post('/:evaluationId/start', [authJwt.verifyToken, authJwt.isManagerOrAdmin], evaluationsController.startEvaluation);
 
 // Finalizar una evaluación (cambiar estado a 'completed')
-router.post('/:evaluationId/complete', [_index.authJwt.verifyToken, _index.authJwt.isManagerOrAdmin], evaluationsController.completeEvaluation);
+router.post('/:evaluationId/complete', [authJwt.verifyToken, authJwt.isManagerOrAdmin], evaluationsController.completeEvaluation);
 
 // Obtener el progreso de una evaluación
-router.get('/:evaluationId/progress', [_index.authJwt.verifyToken], evaluationsController.getEvaluationProgress);
+router.get('/:evaluationId/progress', [authJwt.verifyToken], evaluationsController.getEvaluationProgress);
 
 // Enviar feedback para una evaluación
-router.post('/:evaluationId/feedback', [_index.authJwt.verifyToken], evaluationsController.submitFeedback);
-var _default = exports["default"] = router;
+router.post('/:evaluationId/feedback', [authJwt.verifyToken], evaluationsController.submitFeedback);
+
+export default router;

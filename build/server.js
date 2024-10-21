@@ -14,11 +14,7 @@ var _authRoutes = _interopRequireDefault(require("./routes/auth.routes.js"));
 var _feedbackRoutes = _interopRequireDefault(require("./routes/feedback.routes.js"));
 var _reportRoutes = _interopRequireDefault(require("./routes/report.routes.js"));
 var _initialSetup = require("./lib/initialSetup.js");
-function _interopRequireDefault(e) {
-  return e && e.__esModule ? e : {
-    "default": e
-  };
-}
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 // Importar el paquete cors
 
 // Importar el router de feedback
