@@ -46,7 +46,7 @@ Evaluations App is a RESTful API built with Node.js and Express, utilizing Mongo
 Usage
 The API is available at the following link:
 
-[Evaluations API](https://evaluations-app.onrender.com)
+[Evaluations API](evaluations-app-dbh6.vercel.app)
 
 Contact
 If you have any questions or suggestions, please do not hesitate to contact me:
