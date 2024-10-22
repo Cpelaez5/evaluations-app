@@ -40,17 +40,95 @@ This is a RESTful API developed in Node.js with Express.js and Mongoose, designe
 ### API Link
 - You can access the API at the following link: [360 Degree Evaluations API (Render)](https://evaluations-app.onrender.com/api) or [360 Degree Evaluations API (Railway)](https://thorough-renewal-production.up.railway.app/api)
 
-### API Endpoints
+## API Endpoints
 
-   * POST /api/auth/register: User registration
-   * POST /api/auth/login: Login (returns JWT)
-   * GET /api/employees: Retrieve list of employees
-   * POST /api/evaluations: Create a new evaluation
-   * GET /api/evaluations/:id: Get details of an evaluation
-   * PUT /api/evaluations/:id: Update an evaluation
-   * GET /api/evaluations/employee/:id: Get evaluations of an employee
-   * POST /api/feedback: Send feedback for an evaluation
-   * GET /api/reports/employee/:id: Generate an evaluation report for an employee
+### Authentication Endpoints
+
+- **POST /api/auth/register**  
+  Register a new user. Checks for duplicate username or email and ensures the specified roles exist.
+
+- **POST /api/auth/login**  
+  Log in a user and return a JWT for authentication.
+
+### Employee Endpoints
+
+- **POST /api/employees**  
+  Create a new employee (accessible only to managers or admins).
+
+- **GET /api/employees**  
+  Retrieve all employees (accessible only to admins).
+
+- **GET /api/employees/:employeeId**  
+  Retrieve an employee by ID (accessible to any authenticated user).
+
+- **PUT /api/employees/:employeeId**  
+  Update an employee by ID (accessible only to managers or admins).
+
+- **DELETE /api/employees/:employeeId**  
+  Delete an employee by ID (accessible only to admins).
+
+### Evaluation Endpoints
+
+- **POST /api/evaluations**  
+  Create a new evaluation (accessible only to managers or admins).
+
+- **GET /api/evaluations**  
+  Retrieve all evaluations (accessible only to admins).
+
+- **GET /api/evaluations/employee/:employeeId**  
+  Retrieve evaluations for a specific employee (accessible to any authenticated user).
+
+- **GET /api/evaluations/:evaluationId**  
+  Retrieve a specific evaluation by ID (accessible to any authenticated user).
+
+- **PUT /api/evaluations/:evaluationId**  
+  Update an evaluation (accessible only to the creator or admin).
+
+- **DELETE /api/evaluations/:evaluationId**  
+  Delete an evaluation (accessible only to admins).
+
+- **POST /api/evaluations/:evaluationId/start**  
+  Start an evaluation (changes the status to 'inProgress', accessible only to managers or admins).
+
+- **POST /api/evaluations/:evaluationId/complete**  
+  Complete an evaluation (changes the status to 'completed', accessible only to managers or admins).
+
+- **GET /api/evaluations/:evaluationId/progress**  
+  Retrieve the progress of an evaluation (accessible to any authenticated user).
+
+- **POST /api/evaluations/:evaluationId/feedback**  
+  Submit feedback for an evaluation (accessible to any authenticated user).
+
+### Feedback Endpoints
+
+- **POST /api/feedback**  
+  Create new feedback (accessible to any authenticated user).
+
+- **GET /api/feedback/:feedbackId**  
+  Retrieve feedback by ID (accessible to any authenticated user).
+
+- **GET /api/feedback/evaluation/:evaluationId**  
+  Retrieve all feedback for a specific evaluation (accessible to any authenticated user).
+
+- **PUT /api/feedback/:feedbackId**  
+  Update feedback (accessible only to the creator or admin).
+
+- **DELETE /api/feedback/:feedbackId**  
+  Delete feedback (accessible only to the creator or admin).
+
+### User Endpoints
+
+- **GET /api/users**  
+  Retrieve all users (accessible only to admins).
+
+- **GET /api/users/:userId**  
+  Retrieve a user by ID (accessible only to admins).
+
+- **PUT /api/users/:userId**  
+  Update a user by ID (accessible only to admins).
+
+- **DELETE /api/users/:userId**  
+  Delete a user by ID (accessible only to admins).
 
 ### Authentication and Roles
 The API implements JWT authentication and handles user roles:
@@ -106,9 +184,6 @@ If tests have been implemented, you can run them with the following command:
 * Make your changes and commit them (git commit -m 'Add new feature').
 * Push the branch (git push origin feature/new-feature).
 * Open a Pull Request.
-* License
-
-This project is under the MIT License. See the [LICENSE] file for more details.
 
 ### Contact
 - For questions or comments, you can contact [Carlos Peláez](mailto:cpelaez0811@gmail.com)
