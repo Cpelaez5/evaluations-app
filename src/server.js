@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/api', (req, res) => {
-    res.json({ message: "Bienvenido a la API de Evaluaciones 360 Grados", users: ["userOne", "userTwo", "userThree", "userFour"] });
+    res.json({ emoji: '👋', message: "Welcome to the 360 Evaluations API", developed_by:"Carlos Peláez" });
 });
 
 

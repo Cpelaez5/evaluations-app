@@ -1,4 +1,4 @@
-# 360 Degree Evaluations API
+# 360 Evaluations API
 
 ## Description
 
@@ -38,7 +38,7 @@ This is a RESTful API developed in Node.js with Express.js and Mongoose, designe
 ### Usage
 
 ### API Link
-- You can access the API at the following link: [360 Degree Evaluations API](https://evaluations-app.onrender.com/api)
+- You can access the API at the following link: [360 Degree Evaluations API (Render)](https://evaluations-app.onrender.com/api) or [360 Degree Evaluations API (Railway)](https://thorough-renewal-production.up.railway.app/api)
 
 ### API Endpoints
 
