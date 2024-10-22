@@ -30,9 +30,9 @@ This is a RESTful API developed in Node.js with Express.js and Mongoose, designe
     ```
 3. Set up the environment variables. Create a .env file at the root of the project and add the following variables:
     ```conf
-    MONGODB_URI=your_mongodb_atlas_uri
-    JWT_SECRET=your_jwt_secret
-    PORT=3000
+    EVALUATIONS_APP_MONGODB_HOST=your_mongodb_atlas_uri
+    EVALUATIONS_APP_MONGODB_DATABASE=your_db_name
+    EVALUATIONS_APP_MONGODB_PORT=3000
     ```
 
 ### Usage
