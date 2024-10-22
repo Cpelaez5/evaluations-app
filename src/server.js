@@ -24,8 +24,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/api', (req, res) => {
-    res.json({ "users": ["userOne", "userTwo", "userThree", "userFour"] });
+    res.json({ message: "Bienvenido a la API de Evaluaciones 360 Grados", users: ["userOne", "userTwo", "userThree", "userFour"] });
 });
+
 
 app.use('/api/users', usersRoutes);
 app.use('/api/evaluations', evaluationsRoutes);
