@@ -21,8 +21,8 @@ This is a RESTful API developed in Node.js with Express.js and Mongoose, designe
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_user/evaluaciones-360-api.git
-   cd evaluaciones-360-api
+   git clone https://github.com/Cpelaez5/evaluations-app.git
+   cd evaluations-app
    ```
 2. Install the dependencies:
     ```powershell
